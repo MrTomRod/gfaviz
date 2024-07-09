@@ -286,17 +286,30 @@ void VizElementLabel::setHighlight(bool value) {
   update();
 }
 
-void VizElementLabel::paint(QPainter * painter,
-    const QStyleOptionGraphicsItem * option, QWidget * widget) {
-  QTextCharFormat format;
-  format.setTextOutline (outlinepen);
-  QTextCursor cursor (this->document());
-  cursor.select (QTextCursor::Document);
-  cursor.mergeCharFormat (format);
-  QGraphicsTextItem::paint (painter, option, widget);
-  format.setTextOutline (QPen (Qt::transparent));
-  cursor.mergeCharFormat (format);
-  QGraphicsTextItem::paint (painter, option, widget);
+//void VizElementLabel::paint(QPainter * painter,
+//    const QStyleOptionGraphicsItem * option, QWidget * widget) {
+//  QTextCharFormat format;
+//  format.setTextOutline (outlinepen);
+//  QTextCursor cursor (this->document());
+//  cursor.select (QTextCursor::Document);
+//  cursor.mergeCharFormat (format);
+//  QGraphicsTextItem::paint (painter, option, widget);
+//  format.setTextOutline (QPen (Qt::transparent));
+//  cursor.mergeCharFormat (format);
+//  QGraphicsTextItem::paint (painter, option, widget);
+//}
+
+void VizElementLabel::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget) {
+    Q_UNUSED(option)
+    Q_UNUSED(widget)
+
+    // Set font and pen for the painter to use for drawing text
+    painter->setFont(font);
+    painter->setPen(QPen(color));
+
+    // Draw the text at the label's position
+    // Adjust the position based on your specific needs
+    painter->drawText(boundingRect(), Qt::AlignCenter, toPlainText());
 }
 
 QVariant VizElementLabel::itemChange(GraphicsItemChange change,

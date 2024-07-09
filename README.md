@@ -1,3 +1,7 @@
+> [!NOTE]  
+> In this fork, text elements are rendered as SVG text elements as opposed to SVG paths.
+> Reason: ability to read contig IDs in web browsers, ability to make the SVG interactive.
+
 # GfaViz
 
 GfaViz is a graphical interactive tool for the visualization of sequence graphs in GFA format.
