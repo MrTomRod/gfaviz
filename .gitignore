@@ -3,3 +3,5 @@ src/moc/*
 obj/*
 Makefile
 gfaviz
+.qmake.stash
+.idea
